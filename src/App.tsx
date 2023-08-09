@@ -1,10 +1,13 @@
+import { AppProvider } from "./context"
 import { RoutesApp } from "./routes"
 import { BrowserRouter } from "react-router-dom"
 
 function App() {
   return (
     <BrowserRouter>
-      <RoutesApp />
+      <AppProvider>
+        <RoutesApp />
+      </AppProvider>
     </BrowserRouter>
   )
 }

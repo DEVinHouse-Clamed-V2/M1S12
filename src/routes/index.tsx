@@ -1,11 +1,17 @@
-import { Routes, Route } from "react-router-dom"
-import { Users } from "../pages/users"
+import { PublicRoutes } from "./publicRoutes"
+import { PrivateRoutes } from "./privateRoutes"
+import { useApp } from "../hooks/useApp"
+
 
 function RoutesApp() {
-  return (
-    <Routes>
-      <Route path="/" element={<Users />}/>
-    </Routes>
-  )
+    const { user } = useApp()
+
+    if (user?.email) {
+      return <PrivateRoutes/>
+    }
+    return (
+        <PublicRoutes/>
+    )
 }
+
 export { RoutesApp }
