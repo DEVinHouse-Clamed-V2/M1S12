@@ -3,6 +3,7 @@ import {api} from "../../services/api"
 import { UsersProps } from "./interfaces"
 import { PageUsersMain } from "./styled"
 import { useApp } from "../../hooks/useApp"
+import { Header } from "../../components/Header"
 
 function Users() {
   const [ users, setUsers ] = useState<UsersProps[]>([])
@@ -25,6 +26,8 @@ function Users() {
   }
 
   return (
+    <>
+    <Header />
     <PageUsersMain>
       {
         users.length > 0 ? users.map(({name, id, email}) => {
@@ -41,6 +44,7 @@ function Users() {
       }
       <button onClick={logout}>Logout</button>
     </PageUsersMain>
+    </>
   )
 }
 
